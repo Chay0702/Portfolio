@@ -1100,7 +1100,7 @@ async function sendChat() {
 
   var ans;
   // Only attempt live call if URL has been set
-  if (N8N_WEBHOOK_URL && N8N_WEBHOOK_URL !== 'YOUR_N8N_WEBHOOK_URL') {
+  if (N8N_WEBHOOK_URL && N8N_WEBHOOK_URL !== 'http://46.62.197.207:5678/webhook/e8d5c6c6-8af8-46b3-bd99-b4b2711bbf4d/chat') {
     try {
       var res = await fetch(N8N_WEBHOOK_URL, {
         method: 'POST',
