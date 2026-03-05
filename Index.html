@@ -390,7 +390,7 @@ footer{background:var(--navy);padding:1.75rem 3rem}
         <div class="pmib-txt"><strong>Associate Director (Acting) — PMI Queensland</strong>Events &amp; Professional Development · Leading 6 volunteers</div>
       </div>
       <div class="hctas">
-        <a class="btn btn-nv" href="#">View STAR Projects →</a>
+        <a class="btn btn-nv" id="ctaProjects" href="#">View STAR Projects →</a>
         <a class="btn btn-ol" href="https://www.engineeringtoolbox.com/" target="_blank" rel="noopener noreferrer">⚙ Engineering Toolbox ↗</a>
       </div>
     </div>
@@ -450,17 +450,19 @@ footer{background:var(--navy);padding:1.75rem 3rem}
           <button class="csend" id="chatSend">Ask →</button>
         </div>
       </div>
-      <p style="font-family:var(--fm);font-size:.55rem;color:var(--text3);text-align:center;margin-top:.55rem;line-height:1.55;display:none">Built with N8N · API 610 (12th Ed.) knowledge base<br>Connect webhook in sendChat() to go fully live</p>
+      <p style="font-family:var(--fm);font-size:.68rem;color:var(--text2);text-align:center;margin-top:.65rem;line-height:1.75;padding:0 .3rem">
+        🛠 <strong>Built by Chaitanya</strong> · Trained on <strong>API 610 (12th Ed.)</strong><br>
+        <span style="color:var(--text3)">Expanding to API 682 · ASME B31.3 · API 617 — more standards coming</span>
+      </p>
     </div>
 
   </div>
 
   <div class="sband">
-    <div class="sbinner fi">
+    <div class="sbinner fi" style="grid-template-columns:repeat(3,1fr)">
       <div><span class="sn">$15M+</span><span class="sl">Capital Delivered</span></div>
       <div><span class="sn">Zero LTI</span><span class="sl">All Projects</span></div>
       <div><span class="sn">PMP®</span><span class="sl">PMI Certified</span></div>
-      <div><span class="sn">5</span><span class="sl">STAR Projects</span></div>
     </div>
   </div>
 
@@ -504,7 +506,7 @@ footer{background:var(--navy);padding:1.75rem 3rem}
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:1.5rem">
       <div>
         <p style="color:var(--text2);font-size:.93rem;line-height:1.8;margin-bottom:1rem">
-          I grew up in India with a deep curiosity for how things work — mechanical systems, rotating equipment, the physics of why machines fail and how to make them last longer. That curiosity led me through a Mechanical Engineering degree at JNTU, a Master's in Metallurgy at NIT Karnataka, and eventually to Australia for an MBA at QUT.
+          I grew up in India with a deep curiosity for how things work — mechanical systems, rotating equipment, the physics of why machines fail and how to make them last longer. That curiosity led me through a Mechanical Engineering degree at JNTU, a Master's in Metallurgy at NIT Karnataka, and eventually to Australia for a Masters in Business at QUT.
         </p>
         <p style="color:var(--text2);font-size:.93rem;line-height:1.8;margin-bottom:1rem">
           My first real taste of mining came at Incitec Pivot and BHP, where I learned that reliability engineering is as much about data discipline and process rigour as it is about technical knowledge. That foundation shaped everything that followed at Dyno Nobel — where I spent three years in the field at Moranbah delivering capital projects in one of Queensland's most demanding brownfield environments.
@@ -524,7 +526,7 @@ footer{background:var(--navy);padding:1.75rem 3rem}
           </ul>
         </div>
         <div style="background:var(--off);border:1px solid var(--border);border-radius:10px;padding:1.1rem 1.2rem">
-          <div style="font-family:var(--fm);font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:var(--navy);margin-bottom:.6rem">Quick facts</div>
+          <div style="font-family:var(--fm);font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:var(--navy);margin-bottom:.6rem">At a Glance</div>
           <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:.45rem">
             <li style="font-size:.88rem;color:var(--text2);display:flex;gap:.5rem"><span>📍</span><span>Brisbane, QLD — Australian Permanent Resident</span></li>
             <li style="font-size:.88rem;color:var(--text2);display:flex;gap:.5rem"><span>✈️</span><span>Open to FIFO — 4/3 or equivalent rosters</span></li>
@@ -633,7 +635,7 @@ footer{background:var(--navy);padding:1.75rem 3rem}
     <div class="rblock fi">
       <div class="rslbl">Contact &amp; Location</div>
       <div class="rrgrid">
-        <div class="ri"><span class="rk">Email</span><span class="rv"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="67040f060e1306091e064914150e090e1106145027000a060e0b4904080a">[email&#160;protected]</a></span></div>
+        <div class="ri"><span class="rk">Email</span><span class="rv"><a id="resumeEmail" href="#" onclick="this.href='mail'+'to:'+'chaitanya.srinivas7'+'@'+'gmail.com'" style="color:var(--navy);text-decoration:none">chaitanya.srinivas7&#64;gmail.com</a></span></div>
         <div class="ri"><span class="rk">LinkedIn</span><span class="rv">linkedin.com/in/chaitanyasrinivas</span></div>
         <div class="ri"><span class="rk">Location</span><span class="rv">Brisbane, QLD · Open to FIFO</span></div>
         <div class="ri"><span class="rk">Visa</span><span class="rv">Australian Permanent Resident</span></div>
@@ -794,9 +796,9 @@ footer{background:var(--navy);padding:1.75rem 3rem}
 
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-bottom:2.5rem">
       <div style="display:flex;flex-direction:column;gap:1rem">
-        <a href="mailto:chaitanya.srinivas7@gmail.com" style="display:flex;align-items:center;gap:.85rem;background:var(--gold-bg);border:1px solid var(--gold-br);border-radius:10px;padding:1rem 1.2rem;text-decoration:none;transition:all .2s" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='var(--gold-br)'">
+        <a id="contactEmail" href="#" onclick="this.href='mail'+'to:'+'chaitanya.srinivas7'+'@'+'gmail.com';return false;" style="display:flex;align-items:center;gap:.85rem;background:var(--gold-bg);border:1px solid var(--gold-br);border-radius:10px;padding:1rem 1.2rem;text-decoration:none;transition:all .2s" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='var(--gold-br)'">
           <span style="font-size:1.4rem">📧</span>
-          <div><div style="font-family:var(--fb);font-size:.83rem;font-weight:600;color:var(--navy)">Email</div><div style="font-size:.8rem;color:var(--text2)">chaitanya.srinivas7@gmail.com</div></div>
+          <div><div style="font-family:var(--fb);font-size:.83rem;font-weight:600;color:var(--navy)">Email</div><div style="font-size:.8rem;color:var(--text2)">chaitanya.srinivas7&#64;gmail.com</div></div>
         </a>
         <a href="https://linkedin.com/in/chaitanyasrinivas" target="_blank" rel="noopener noreferrer" style="display:flex;align-items:center;gap:.85rem;background:var(--off);border:1px solid var(--border);border-radius:10px;padding:1rem 1.2rem;text-decoration:none;transition:all .2s" onmouseover="this.style.borderColor='var(--navy)'" onmouseout="this.style.borderColor='var(--border)'">
           <span style="font-size:1.4rem">💼</span>
@@ -818,7 +820,7 @@ footer{background:var(--navy);padding:1.75rem 3rem}
           <div style="display:flex;flex-direction:column;gap:.75rem">
             <div>
               <label style="font-family:var(--fm);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--text3);display:block;margin-bottom:.3rem">Your Name</label>
-              <input id="cf-name" type="text" placeholder="e.g. Ram Choudhary" style="width:100%;box-sizing:border-box;font-family:var(--fb);font-size:.85rem;padding:.55rem .8rem;border:1.5px solid var(--border);border-radius:7px;background:var(--white);color:var(--navy);outline:none" onfocus="this.style.borderColor='var(--navy)'" onblur="this.style.borderColor='var(--border)'"/>
+              <input id="cf-name" type="text" placeholder="Your name" style="width:100%;box-sizing:border-box;font-family:var(--fb);font-size:.85rem;padding:.55rem .8rem;border:1.5px solid var(--border);border-radius:7px;background:var(--white);color:var(--navy);outline:none" onfocus="this.style.borderColor='var(--navy)'" onblur="this.style.borderColor='var(--border)'"/>
             </div>
             <div>
               <label style="font-family:var(--fm);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--text3);display:block;margin-bottom:.3rem">Your Email</label>
@@ -826,7 +828,7 @@ footer{background:var(--navy);padding:1.75rem 3rem}
             </div>
             <div>
               <label style="font-family:var(--fm);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--text3);display:block;margin-bottom:.3rem">Message</label>
-              <textarea id="cf-msg" rows="4" placeholder="Hi Chaitanya, I have a role that might suit you..." style="width:100%;box-sizing:border-box;font-family:var(--fb);font-size:.85rem;padding:.55rem .8rem;border:1.5px solid var(--border);border-radius:7px;background:var(--white);color:var(--navy);outline:none;resize:vertical" onfocus="this.style.borderColor='var(--navy)'" onblur="this.style.borderColor='var(--border)'"></textarea>
+              <textarea id="cf-msg" rows="4" placeholder="Your message..." style="width:100%;box-sizing:border-box;font-family:var(--fb);font-size:.85rem;padding:.55rem .8rem;border:1.5px solid var(--border);border-radius:7px;background:var(--white);color:var(--navy);outline:none;resize:vertical" onfocus="this.style.borderColor='var(--navy)'" onblur="this.style.borderColor='var(--border)'"></textarea>
             </div>
             <button id="formSubmit" style="font-family:var(--fb);font-weight:700;font-size:.85rem;padding:.62rem 1.3rem;background:var(--navy);color:var(--white);border:none;border-radius:7px;cursor:pointer;transition:all .2s;align-self:flex-start" onmouseover="this.style.background='var(--navy2)'" onmouseout="this.style.background='var(--navy)'">Send Message →</button>
           </div>
@@ -1065,6 +1067,12 @@ if (chatInp) chatInp.addEventListener('keydown', function(e) {
 var chatSend = document.getElementById('chatSend');
 if (chatSend) chatSend.addEventListener('click', sendChat);
 
+// ── STEP 2: PASTE YOUR N8N WEBHOOK URL HERE ──────────────────────────────────
+// In N8N: Webhook node → copy the "Production URL" → paste below (keep the quotes)
+// Example: 'http://46.62.197.207:5678/webhook/your-webhook-path'
+var N8N_WEBHOOK_URL = 'YOUR_N8N_WEBHOOK_URL';
+// ─────────────────────────────────────────────────────────────────────────────
+
 async function sendChat() {
   var inp = document.getElementById('chatInp');
   var q = inp.value.trim();
@@ -1072,64 +1080,76 @@ async function sendChat() {
   if (!q && !hasF) return;
   inp.value = '';
   var msgs = document.getElementById('chatMsgs');
+
+  // Show user message and file name in chat
   if (hasF) msgs.innerHTML += '<div class="cmfile"><span class="cmfn">' + attFile.name + '</span></div>';
   if (q) msgs.innerHTML += '<div class="cm cmu">' + q + '</div>';
+
+  // Thinking indicator
   var tid = 't' + Date.now();
   msgs.innerHTML += '<div class="cm cma cmth" id="' + tid + '">' + (hasF ? 'Analysing ' + attFile.name + '…' : 'Checking API 610…') + '</div>';
   msgs.lastElementChild.scrollIntoView({behavior: 'smooth', block: 'end'});
+
+  // Capture file data before clearing
   var fName = attFile ? attFile.name : null;
+  var fData = attB64 ? attB64 : null;   // base64 string of the uploaded file
   attFile = null; attB64 = null;
   document.getElementById('aprev').style.display = 'none';
   document.getElementById('attbtn').classList.remove('hf');
   document.getElementById('chatInp').placeholder = 'Ask API 610…';
-  try {
-    /* 🔧 CONNECT N8N: uncomment and replace URL below
-    var res = await fetch('YOUR_N8N_WEBHOOK_URL', {
-      method: 'POST',
-      headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify({question: q || (fName ? 'Review this document for API 610 compliance.' : ''), file: attB64, fileName: fName})
-    });
-    var data = await res.json();
-    var ans = data.answer || data.output || 'No response.'; */
-    await new Promise(function(r) { setTimeout(r, 1300); });
-    var ql = q.toLowerCase();
-    var ans;
-    if (fName) {
-      ans = '<strong>Demo — Document received:</strong> "' + fName + '"<br><br>In live mode this would be analysed clause-by-clause against API 610. Connect your N8N webhook in sendChat() to activate.';
-    } else if (ql.match(/available|looking|open|search|job|role|hire|recruit|start/)) {
-      ans = '<strong>Yes — actively available.</strong> Chaitanya finished at Dyno Nobel in October 2025 and is currently open to Project Engineer and Project Manager roles in EPCM and mining &amp; resources. Brisbane-based, open to FIFO (4/3 or equivalent). No visa sponsorship required — Australian Permanent Resident.';
-    } else if (ql.match(/experience|years|background|history|work/)) {
-      ans = '<strong>4+ years</strong> delivering brownfield EPCM capital projects in mining — $15M+ portfolio at Dyno Nobel (Moranbah), preceding reliability engineering at BHP and Incitec Pivot. Strong in rotating equipment (API 610, 682, compressors, turbines), multi-discipline package management, QA/QC &amp; ITPs, and full-cycle project delivery. PMP® certified.';
-    } else if (ql.match(/salary|rate|pay|compensation|expectation/)) {
-      ans = 'That\'s best discussed directly with Chaitanya. You can reach him at <strong>chaitanya.srinivas7@gmail.com</strong> or via LinkedIn at <strong>linkedin.com/in/chaitanyasrinivas</strong>.';
-    } else if (ql.match(/location|relocat|fifo|brisbane|perth|sydney|site/)) {
-      ans = 'Based in <strong>Brisbane, QLD</strong>. Open to FIFO rosters (4/3 or equivalent), hybrid Brisbane arrangements, and project-based travel. QLD C Class Driver\'s Licence held.';
-    } else if (ql.match(/contact|email|reach|call|phone/)) {
-      ans = 'Reach Chaitanya at <strong>chaitanya.srinivas7@gmail.com</strong> or connect on LinkedIn: <strong>linkedin.com/in/chaitanyasrinivas</strong>. You can also download his resume using the button in the nav bar above.';
-    } else if (ql.match(/pmp|certif|qualif/)) {
-      ans = '<strong>PMP® certified</strong> (PMI, Nov 2025), Six Sigma Green Belt, Primavera P6. Currently completing API 682 and ASME B31.3. RPEQ pathway is next on the roadmap. Also serving as Associate Director (Acting) at PMI Queensland — events &amp; professional development.';
-    } else if (ql.match(/bechtel|worley|wood|jacobs|amec|fluor|clough|hatch|epcm contractor/)) {
-      ans = 'Chaitanya\'s experience is directly aligned with EPCM contractor delivery models — multi-discipline coordination, contractor supervision, ITPs, QA/QC, commissioning &amp; handover in brownfield mining environments. He has operated within EPCM contractor frameworks at Dyno Nobel and is well-versed in package management and owner\'s team interfaces. Happy to discuss fit for a specific role.';
-    } else {
-      ans = '<strong>API 610 Demo:</strong> "' + q + '" — connect the N8N webhook in sendChat() to get live answers from the full API 610 (12th Ed.) knowledge base. For questions about Chaitanya\'s availability or experience, just ask!';
+
+  var ans;
+  // Only attempt live call if URL has been set
+  if (N8N_WEBHOOK_URL && N8N_WEBHOOK_URL !== 'YOUR_N8N_WEBHOOK_URL') {
+    try {
+      var res = await fetch(N8N_WEBHOOK_URL, {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({
+          question: q || (fName ? 'Review this document for API 610 compliance.' : ''),
+          fileName: fName,
+          fileData: fData   // base64-encoded file content — read this in N8N HTTP node
+        })
+      });
+      var data = await res.json();
+      // N8N can return the answer in any of these fields — handles most workflows
+      ans = data.answer || data.output || data.text || data.message || data.response || JSON.stringify(data);
+    } catch(err) {
+      ans = '<span style="color:var(--red)">⚠ Could not reach the agent — check your N8N webhook URL and that the workflow is active.</span>';
     }
-    var t = document.getElementById(tid);
-    if (t) t.remove();
-    msgs.innerHTML += '<div class="cm cma">' + ans + '</div>';
-  } catch(err) {
-    var t = document.getElementById(tid);
-    if (t) t.remove();
-    msgs.innerHTML += '<div class="cm cma" style="color:var(--red)">Connection error — check your N8N webhook URL.</div>';
+  } else {
+    // ── SMART DEMO MODE (no webhook set) ────────────────────────────────────
+    await new Promise(function(r) { setTimeout(r, 900); });
+    var ql = q.toLowerCase();
+    if (fName) {
+      ans = '<strong>File received: "' + fName + '"</strong><br><br>In live mode this will be analysed clause-by-clause against API 610 (12th Ed.). Set your N8N webhook URL in the script to activate.';
+    } else if (ql.match(/available|looking|open|search|job|role|hire|recruit|opportunit/)) {
+      ans = '<strong>Yes — actively open to opportunities.</strong> Chaitanya is seeking Project Engineer and Project Manager roles in EPCM and mining &amp; resources. Brisbane-based, open to FIFO. Australian Permanent Resident — no sponsorship required.';
+    } else if (ql.match(/experience|years|background|history|work/)) {
+      ans = '<strong>4+ years</strong> delivering brownfield EPCM capital projects in mining — $15M+ portfolio at Dyno Nobel (Moranbah), preceded by reliability engineering at BHP and Incitec Pivot. Strong in rotating equipment (API 610/682, compressors, turbines), QA/QC, ITPs and full-cycle project delivery. PMP® certified.';
+    } else if (ql.match(/salary|rate|pay|compensation|expectation/)) {
+      ans = 'Best discussed directly — reach Chaitanya at <strong>chaitanya.srinivas7@gmail.com</strong> or via LinkedIn.';
+    } else if (ql.match(/location|relocat|fifo|brisbane|perth|sydney|site/)) {
+      ans = 'Based in <strong>Brisbane, QLD</strong>. Open to FIFO rosters (4/3 or equivalent) and hybrid arrangements. QLD C Class Driver\'s Licence held.';
+    } else if (ql.match(/contact|email|reach|call|phone/)) {
+      ans = 'Reach Chaitanya at <strong>chaitanya.srinivas7@gmail.com</strong> or on LinkedIn: <strong>linkedin.com/in/chaitanyasrinivas</strong>.';
+    } else if (ql.match(/pmp|certif|qualif/)) {
+      ans = '<strong>PMP® certified</strong> (PMI, Nov 2025), Six Sigma Green Belt, Primavera P6. Currently studying API 682 and ASME B31.3. RPEQ on the roadmap.';
+    } else if (ql.match(/bechtel|worley|wood|jacobs|fluor|clough|hatch|epcm/)) {
+      ans = 'Chaitanya\'s experience aligns directly with EPCM contractor delivery — multi-discipline coordination, contractor supervision, ITPs, QA/QC, commissioning &amp; handover in brownfield mining environments.';
+    } else if (ql.match(/casing|impeller|seal|nozzle|suction|discharge|vibration|bearing|shaft|mechanical seal/)) {
+      ans = '<strong>API 610 (12th Ed.):</strong> Connect the N8N webhook to get a live clause-by-clause answer from the full standard. This agent is designed to handle pump compliance queries in real-time.';
+    } else {
+      ans = '<strong>API 610 Agent</strong> — set your N8N webhook URL to get live answers from the full API 610 (12th Ed.) knowledge base. For questions about Chaitanya\'s background, just ask!';
+    }
+    // ──────────────────────────     // ── end demo mode ──
   }
+
+  var t = document.getElementById(tid);
+  if (t) t.remove();
+  msgs.innerHTML += '<div class="cm cma">' + ans + '</div>';
   msgs.lastElementChild.scrollIntoView({behavior: 'smooth', block: 'end'});
 }
-
-// ── CONTACT FORM ──
-var formSubmit = document.getElementById('formSubmit');
-if (formSubmit) formSubmit.addEventListener('click', function() {
-  document.getElementById('cformWrap').style.display = 'none';
-  document.getElementById('fsuccess').style.display = 'block';
-});
 
 }); // end DOMContentLoaded
 </script>
