@@ -416,7 +416,34 @@ footer{background:var(--navy);padding:1.75rem 3rem}
         <div class="excell"><span class="exn">6</span><span class="exl">Vol. Led</span></div>
       </div>
     </div>
-
+<!-- AGENT EXPANDED MODAL -->
+<div id="agentModal" style="display:none;position:fixed;inset:0;background:rgba(13,31,60,.65);z-index:3000;backdrop-filter:blur(10px);align-items:center;justify-content:center;padding:1rem;box-sizing:border-box" onclick="if(event.target===this){this.style.display='none';document.body.style.overflow=''}">
+  <div style="background:#fff;border:1.5px solid #e2e5eb;border-radius:14px;width:min(700px,96vw);max-height:90vh;display:flex;flex-direction:column;box-shadow:0 4px 24px rgba(13,31,60,.1);">
+    <div style="background:#f7f8fa;border-bottom:1px solid #e2e5eb;padding:.82rem 1.15rem;display:flex;align-items:center;gap:.65rem;flex-shrink:0">
+      <span style="width:8px;height:8px;border-radius:50%;background:#16a34a;box-shadow:0 0 8px rgba(22,163,74,.6);animation:blink 2s ease-in-out infinite;display:inline-block"></span>
+      <span style="font-family:var(--fm);font-size:.68rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--navy)">API 610 Compliance Agent</span>
+      <span style="font-family:var(--fm);font-size:.57rem;color:var(--text3);letter-spacing:.05em">N8N · 12th Ed.</span>
+      <span style="margin-left:auto;font-family:var(--fm);font-size:.55rem;color:var(--text3);margin-right:.5rem">Esc to close</span>
+      <button onclick="document.getElementById('agentModal').style.display='none';document.body.style.overflow=''" style="width:26px;height:26px;border-radius:5px;background:transparent;border:1.5px solid #c8cdd8;display:flex;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0">
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#8a95a3" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div id="chatMsgsModal" style="flex:1;padding:1rem;display:flex;flex-direction:column;gap:.62rem;overflow-y:auto;background:#f7f8fa;min-height:320px;max-height:calc(90vh - 200px)">
+      <div class="cm cma">👋 Trained on <strong>API 610 (12th Ed.)</strong> — ask a compliance question or attach a pump datasheet.</div>
+    </div>
+    <div style="padding:.5rem .95rem .72rem;display:flex;flex-wrap:wrap;gap:.32rem;border-top:1px solid #e2e5eb;background:#fff;flex-shrink:0">
+      <button class="sug" onclick="document.getElementById('chatInpModal').value=this.dataset.q;sendModalChat()" data-q="What are the minimum allowable casing wall thickness requirements per API 610?">Casing wall thickness</button>
+      <button class="sug" onclick="document.getElementById('chatInpModal').value=this.dataset.q;sendModalChat()" data-q="What hydrostatic test pressure is required for pump casings under API 610?">Hydrostatic test pressure</button>
+      <button class="sug" onclick="document.getElementById('chatInpModal').value=this.dataset.q;sendModalChat()" data-q="What are the bearing housing vibration limits specified in API 610?">Vibration limits</button>
+      <button class="sug" onclick="document.getElementById('chatInpModal').value=this.dataset.q;sendModalChat()" data-q="What NPSH margin does API 610 require between available and required NPSH?">NPSH margins</button>
+      <button class="sug" onclick="document.getElementById('chatInpModal').value=this.dataset.q;sendModalChat()" data-q="What are the maximum allowable nozzle loads per API 610 Table 4?">Nozzle loads (Table 4)</button>
+    </div>
+    <div style="padding:.75rem .95rem;border-top:1px solid #e2e5eb;display:flex;gap:.48rem;align-items:center;background:#fff;flex-shrink:0">
+      <input class="cinp" id="chatInpModal" placeholder="Ask API 610…" onkeydown="if(event.key==='Enter')sendModalChat()"/>
+      <button class="csend" onclick="sendModalChat()">Ask →</button>
+    </div>
+  </div>
+</div>
     <!-- AGENT — 3rd column -->
     <div class="agentcol">
       <div class="agent-label"><span class="adot" style="width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 6px rgba(22,163,74,.7);animation:blink 2s ease-in-out infinite;display:inline-block"></span> API 610 Compliance Agent · Live</div>
@@ -425,16 +452,19 @@ footer{background:var(--navy);padding:1.75rem 3rem}
           <span class="chdot"></span>
           <span class="chtitle">API 610 Compliance Agent</span>
           <span class="chsub">N8N · 12th Ed.</span>
+          <button onclick="document.getElementById('agentModal').style.display='flex';document.body.style.overflow='hidden'" title="Open in full window" style="width:26px;height:26px;border-radius:5px;background:transparent;border:1.5px solid #c8cdd8;display:flex;align-items:center;justify-content:center;cursor:pointer;margin-left:auto;flex-shrink:0">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#8a95a3" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+          </button>
         </div>
         <div class="cmsgs" id="chatMsgs" style="min-height:160px;max-height:260px">
           <div class="cm cma">👋 Trained on <strong>API 610 (12th Ed.)</strong> — ask a compliance question or attach a pump datasheet.</div>
         </div>
         <div class="csugs" id="chatSugs">
-          <button class="sug" data-q="Is Chaitanya open to opportunities?">Open to opportunities?</button>
-          <button class="sug" data-q="What is Chaitanya's EPCM experience?">EPCM experience</button>
-          <button class="sug" data-q="What are the minimum casing wall thickness requirements?">Casing wall thickness</button>
-          <button class="sug" data-q="What does API 610 specify for seal chambers?">Seal chambers</button>
-        </div>
+           <button class="sug" data-q="What are the minimum allowable casing wall thickness requirements per API 610?">Casing wall thickness</button>
+           <button class="sug" data-q="What hydrostatic test pressure is required for pump casings under API 610?">Hydrostatic test pressure</button>
+           <button class="sug" data-q="What are the bearing housing vibration limits specified in API 610?">Vibration limits</button>
+           <button class="sug" data-q="What NPSH margin does API 610 require between available and required NPSH?">NPSH margins</button>
+       </div>
         <div class="aprev" id="aprev" style="display:none">
           <span>📎</span>
           <span class="aprevn" id="aprevn"></span>
@@ -744,9 +774,6 @@ footer{background:var(--navy);padding:1.75rem 3rem}
           <div class="rmi"><div class="rdot rfut"></div><span class="rtext">FEA — Finite Element Analysis</span><span class="rtag rtf">Future</span></div>
           <div class="rmi"><div class="rdot rfut"></div><span class="rtext">AWS / Azure AI Fundamentals</span><span class="rtag rtf">Future</span></div>
         </div>
-      </div>
-      <div style="margin-top:1.2rem;background:var(--gold-bg);border:1px solid var(--gold-br);border-radius:8px;padding:.75rem 1rem;font-size:.82rem;color:var(--text2);line-height:1.65">
-        <strong style="color:var(--navy)">Why these?</strong> — API 580/581 RBI is in high demand across mining &amp; oil/gas asset management. API 610 formal certification validates your day-to-day standard expertise for senior roles. RPEQ unlocks sign-off authority and significantly elevates your standing for senior and principal engineer roles in Queensland. AWS/Azure AI credentials bridge your N8N agent work to recognised cloud credentials, directly differentiating your profile. ISO 55001 positions you for asset management leadership at site or corporate level.
       </div>
     </div>
     <div class="tcard fi" style="animation-delay:.1s">
@@ -1152,6 +1179,40 @@ async function sendChat() {
   msgs.lastElementChild.scrollIntoView({behavior: 'smooth', block: 'end'});
 }
 
+    // Close agent modal on Escape
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        document.getElementById('agentModal').style.display = 'none';
+        document.body.style.overflow = '';
+      }
+    });
+
+    async function sendModalChat() {
+      var inp = document.getElementById('chatInpModal');
+      var q = inp.value.trim();
+      if (!q) return;
+      inp.value = '';
+      var msgs = document.getElementById('chatMsgsModal');
+      msgs.innerHTML += '<div class="cm cmu">' + q + '</div>';
+      var tid = 'tm' + Date.now();
+      msgs.innerHTML += '<div class="cm cma cmth" id="' + tid + '">Checking API 610…</div>';
+      msgs.lastElementChild.scrollIntoView({behavior:'smooth',block:'end'});
+      var ans;
+      try {
+        var res = await fetch(N8N_WEBHOOK_URL, {
+          method:'POST', headers:{'Content-Type':'application/json'},
+          body: JSON.stringify({chatInput: q, question: q})
+        });
+        var data = await res.json();
+        ans = data.output || data.answer || data.text || data.message || data.response || JSON.stringify(data);
+      } catch(err) {
+        ans = '<span style="color:var(--red)">⚠ Could not reach the agent.</span>';
+      }
+      var t = document.getElementById(tid);
+      if (t) t.remove();
+      msgs.innerHTML += '<div class="cm cma">' + ans + '</div>';
+      msgs.lastElementChild.scrollIntoView({behavior:'smooth',block:'end'});
+    }
 }); // end DOMContentLoaded
 </script>
 </body>
