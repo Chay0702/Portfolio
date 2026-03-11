@@ -5,8 +5,10 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <title>Chaitanya Srinivas — Mechanical Project Engineer/Manager | PMP®</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<!-- Typebot: must import AND call initStandard in the same module block -->
 <script type="module">
-  import Typebot from 'https://cdn.jsdelivr.net/npm/@typebot.io/js@0/dist/web.js'
+  import Typebot from 'https://cdn.jsdelivr.net/npm/@typebot.io/js@0.3/dist/web.js'
+  Typebot.initStandard({ typebot: 'my-typebot-gudk121' })
 </script>
 <style>
 :root{
@@ -420,6 +422,33 @@ footer{background:var(--navy);padding:1.75rem 3rem}
       </div>
     </div>
 <!-- AGENT EXPANDED MODAL -->
+<div id="agentModal" style="display:none;position:fixed;inset:0;background:rgba(13,31,60,.65);z-index:3000;backdrop-filter:blur(10px);align-items:center;justify-content:center;padding:1rem;box-sizing:border-box" onclick="if(event.target===this){this.style.display='none';document.body.style.overflow=''}">
+  <div style="background:#fff;border:1.5px solid #e2e5eb;border-radius:14px;width:min(700px,96vw);max-height:90vh;display:flex;flex-direction:column;box-shadow:0 4px 24px rgba(13,31,60,.1);">
+    <div style="background:#f7f8fa;border-bottom:1px solid #e2e5eb;padding:.82rem 1.15rem;display:flex;align-items:center;gap:.65rem;flex-shrink:0">
+      <span style="width:8px;height:8px;border-radius:50%;background:#16a34a;box-shadow:0 0 8px rgba(22,163,74,.6);animation:blink 2s ease-in-out infinite;display:inline-block"></span>
+      <span style="font-family:var(--fm);font-size:.68rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--navy)">API 610 Compliance Agent</span>
+      <span style="font-family:var(--fm);font-size:.57rem;color:var(--text3);letter-spacing:.05em">N8N · 12th Ed.</span>
+      <span style="margin-left:auto;font-family:var(--fm);font-size:.55rem;color:var(--text3);margin-right:.5rem">Esc to close</span>
+      <button onclick="document.getElementById('agentModal').style.display='none';document.body.style.overflow=''" style="width:26px;height:26px;border-radius:5px;background:transparent;border:1.5px solid #c8cdd8;display:flex;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0">
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#8a95a3" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div id="chatMsgsModal" style="flex:1;padding:1rem;display:flex;flex-direction:column;gap:.62rem;overflow-y:auto;background:#f7f8fa;min-height:320px;max-height:calc(90vh - 200px)">
+      <div class="cm cma">👋 Trained on <strong>API 610 (12th Ed.)</strong> — ask a compliance question or attach a pump datasheet.</div>
+    </div>
+    <div style="padding:.5rem .95rem .72rem;display:flex;flex-wrap:wrap;gap:.32rem;border-top:1px solid #e2e5eb;background:#fff;flex-shrink:0">
+      <button class="sug" onclick="document.getElementById('chatInpModal').value=this.dataset.q;sendModalChat()" data-q="What are the minimum allowable casing wall thickness requirements per API 610?">Casing wall thickness</button>
+      <button class="sug" onclick="document.getElementById('chatInpModal').value=this.dataset.q;sendModalChat()" data-q="What hydrostatic test pressure is required for pump casings under API 610?">Hydrostatic test pressure</button>
+      <button class="sug" onclick="document.getElementById('chatInpModal').value=this.dataset.q;sendModalChat()" data-q="What are the bearing housing vibration limits specified in API 610?">Vibration limits</button>
+      <button class="sug" onclick="document.getElementById('chatInpModal').value=this.dataset.q;sendModalChat()" data-q="What NPSH margin does API 610 require between available and required NPSH?">NPSH margins</button>
+      <button class="sug" onclick="document.getElementById('chatInpModal').value=this.dataset.q;sendModalChat()" data-q="What are the maximum allowable nozzle loads per API 610 Table 4?">Nozzle loads (Table 4)</button>
+    </div>
+    <div style="padding:.75rem .95rem;border-top:1px solid #e2e5eb;display:flex;gap:.48rem;align-items:center;background:#fff;flex-shrink:0">
+      <input class="cinp" id="chatInpModal" placeholder="Ask API 610…" onkeydown="if(event.key==='Enter')sendModalChat()"/>
+      <button class="csend" onclick="sendModalChat()">Ask →</button>
+    </div>
+  </div>
+</div>
     <!-- AGENT — 3rd column -->
     <div class="agentcol">
       <div class="agent-label"><span class="adot" style="width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 6px rgba(22,163,74,.7);animation:blink 2s ease-in-out infinite;display:inline-block"></span> API 610 Compliance Agent · Live</div>
@@ -429,7 +458,8 @@ footer{background:var(--navy);padding:1.75rem 3rem}
           <span class="chtitle">API 610 Compliance Agent</span>
           <span class="chsub">Typebot · 12th Ed.</span>
         </div>
-        <typebot-standard style="width: 100%; height: 600px; "></typebot-standard>
+        <!-- Typebot standard embed — initialised by the module script in <head> -->
+        <typebot-standard style="width:100%;flex:1;min-height:460px;border:none;display:block"></typebot-standard>
       </div>
       <p style="font-family:var(--fm);font-size:.68rem;color:var(--text2);text-align:center;margin-top:.65rem;line-height:1.75;padding:0 .3rem">
         🛠 <strong>Built by Chaitanya</strong> · Trained on <strong>API 610 (12th Ed.)</strong><br>
@@ -988,22 +1018,128 @@ if (calcHeadBtn) calcHeadBtn.addEventListener('click', calcHead);
 var calcWallBtn = document.getElementById('calcWallBtn');
 if (calcWallBtn) calcWallBtn.addEventListener('click', calcWall);
 
-// ── TYPEBOT INTEGRATION ──
-// The API 610 Compliance Agent is now powered by Typebot
-// The Typebot widget is embedded in the hero section and handles all user interactions
-// No manual chat handler code is needed - Typebot manages communication with its backend
-}); // end DOMContentLoaded
+// ── AGENT CHAT (hero panel now powered by Typebot — see <head> module script) ──
 
-// ── TYPEBOT INITIALIZATION ──
-// The Typebot library is already loaded from the <head> tag
-// Initialize Typebot after DOM is ready
-window.addEventListener('load', function() {
-  if (typeof Typebot !== 'undefined') {
-    Typebot.initStandard({
-      typebot: "my-typebot-gudk121", // Replace with your actual Typebot ID from the Typebot Share tab
-    });
+// ── STEP 2: PASTE YOUR N8N WEBHOOK URL HERE ──────────────────────────────────
+// In N8N: Webhook node → copy the "Production URL" → paste below (keep the quotes)
+// Example: 'http://46.62.197.207:5678/webhook/your-webhook-path'
+var N8N_WEBHOOK_URL = 'https://n8n.chaitanyasrinivas.com/webhook/abee15dc-00a9-4f8f-81a3-19a446b20d22/chat';
+// ─────────────────────────────────────────────────────────────────────────────
+
+async function sendChat() {
+  var inp = document.getElementById('chatInp');
+  var q = inp.value.trim();
+  var hasF = attFile !== null;
+  if (!q && !hasF) return;
+  inp.value = '';
+  var msgs = document.getElementById('chatMsgs');
+
+  // Show user message and file name in chat
+  if (hasF) msgs.innerHTML += '<div class="cmfile"><span class="cmfn">' + attFile.name + '</span></div>';
+  if (q) msgs.innerHTML += '<div class="cm cmu">' + q + '</div>';
+
+  // Thinking indicator
+  var tid = 't' + Date.now();
+  msgs.innerHTML += '<div class="cm cma cmth" id="' + tid + '">' + (hasF ? 'Analysing ' + attFile.name + '…' : 'Checking API 610…') + '</div>';
+  msgs.lastElementChild.scrollIntoView({behavior: 'smooth', block: 'end'});
+
+  // Capture file data before clearing
+  var fName = attFile ? attFile.name : null;
+  var fData = attB64 ? attB64 : null;   // base64 string of the uploaded file
+  attFile = null; attB64 = null;
+  document.getElementById('aprev').style.display = 'none';
+  document.getElementById('attbtn').classList.remove('hf');
+  document.getElementById('chatInp').placeholder = 'Ask API 610…';
+
+  var ans;
+  // Only attempt live call if URL has been set
+  if (N8N_WEBHOOK_URL && N8N_WEBHOOK_URL !== 'YOUR_N8N_WEBHOOK_URL') {
+    try {
+      var res = await fetch(N8N_WEBHOOK_URL, {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({
+          chatInput: q || (fName ? 'Review this document for API 610 compliance.' : ''),
+          question: q || (fName ? 'Review this document for API 610 compliance.' : ''),
+          fileName: fName,
+          fileData: fData
+        })
+      });
+      var data = await res.json();
+      // N8N can return the answer in any of these fields — handles most workflows
+      ans = data.output || data.answer || data.text || data.message || data.response || JSON.stringify(data);
+    } catch(err) {
+      ans = '<span style="color:var(--red)">⚠ Could not reach the agent — check your N8N webhook URL and that the workflow is active.</span>';
+    }
+  } else {
+    // ── SMART DEMO MODE (no webhook set) ────────────────────────────────────
+    await new Promise(function(r) { setTimeout(r, 900); });
+    var ql = q.toLowerCase();
+    if (fName) {
+      ans = '<strong>File received: "' + fName + '"</strong><br><br>In live mode this will be analysed clause-by-clause against API 610 (12th Ed.). Set your N8N webhook URL in the script to activate.';
+    } else if (ql.match(/available|looking|open|search|job|role|hire|recruit|opportunit/)) {
+      ans = '<strong>Yes — actively open to opportunities.</strong> Chaitanya is seeking Project Engineer and Project Manager roles in EPCM and mining &amp; resources. Brisbane-based, open to FIFO. Australian Permanent Resident — no sponsorship required.';
+    } else if (ql.match(/experience|years|background|history|work/)) {
+      ans = '<strong>4+ years</strong> delivering brownfield EPCM capital projects in mining — $15M+ portfolio at Dyno Nobel (Moranbah), preceded by reliability engineering at BHP and Incitec Pivot. Strong in rotating equipment (API 610/682, compressors, turbines), QA/QC, ITPs and full-cycle project delivery. PMP® certified.';
+    } else if (ql.match(/salary|rate|pay|compensation|expectation/)) {
+      ans = 'Best discussed directly — reach Chaitanya at <strong>chaitanya.srinivas7@gmail.com</strong> or via LinkedIn.';
+    } else if (ql.match(/location|relocat|fifo|brisbane|perth|sydney|site/)) {
+      ans = 'Based in <strong>Brisbane, QLD</strong>. Open to FIFO rosters (4/3 or equivalent) and hybrid arrangements. QLD C Class Driver\'s Licence held.';
+    } else if (ql.match(/contact|email|reach|call|phone/)) {
+      ans = 'Reach Chaitanya at <strong>chaitanya.srinivas7@gmail.com</strong> or on LinkedIn: <strong>linkedin.com/in/chaitanyasrinivas</strong>.';
+    } else if (ql.match(/pmp|certif|qualif/)) {
+      ans = '<strong>PMP® certified</strong> (PMI, Nov 2025), Six Sigma Green Belt, Primavera P6. Currently studying API 682 and ASME B31.3. RPEQ on the roadmap.';
+    } else if (ql.match(/bechtel|worley|wood|jacobs|fluor|clough|hatch|epcm/)) {
+      ans = 'Chaitanya\'s experience aligns directly with EPCM contractor delivery — multi-discipline coordination, contractor supervision, ITPs, QA/QC, commissioning &amp; handover in brownfield mining environments.';
+    } else if (ql.match(/casing|impeller|seal|nozzle|suction|discharge|vibration|bearing|shaft|mechanical seal/)) {
+      ans = '<strong>API 610 (12th Ed.):</strong> Connect the N8N webhook to get a live clause-by-clause answer from the full standard. This agent is designed to handle pump compliance queries in real-time.';
+    } else {
+      ans = '<strong>API 610 Agent</strong> — set your N8N webhook URL to get live answers from the full API 610 (12th Ed.) knowledge base. For questions about Chaitanya\'s background, just ask!';
+    }
+    // ──────────────────────────     // ── end demo mode ──
   }
-});
+
+  var t = document.getElementById(tid);
+  if (t) t.remove();
+  msgs.innerHTML += '<div class="cm cma">' + ans + '</div>';
+  msgs.lastElementChild.scrollIntoView({behavior: 'smooth', block: 'end'});
+}
+
+    // Close agent modal on Escape
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        document.getElementById('agentModal').style.display = 'none';
+        document.body.style.overflow = '';
+      }
+    });
+
+    async function sendModalChat() {
+      var inp = document.getElementById('chatInpModal');
+      var q = inp.value.trim();
+      if (!q) return;
+      inp.value = '';
+      var msgs = document.getElementById('chatMsgsModal');
+      msgs.innerHTML += '<div class="cm cmu">' + q + '</div>';
+      var tid = 'tm' + Date.now();
+      msgs.innerHTML += '<div class="cm cma cmth" id="' + tid + '">Checking API 610…</div>';
+      msgs.lastElementChild.scrollIntoView({behavior:'smooth',block:'end'});
+      var ans;
+      try {
+        var res = await fetch(N8N_WEBHOOK_URL, {
+          method:'POST', headers:{'Content-Type':'application/json'},
+          body: JSON.stringify({chatInput: q, question: q})
+        });
+        var data = await res.json();
+        ans = data.output || data.answer || data.text || data.message || data.response || JSON.stringify(data);
+      } catch(err) {
+        ans = '<span style="color:var(--red)">⚠ Could not reach the agent.</span>';
+      }
+      var t = document.getElementById(tid);
+      if (t) t.remove();
+      msgs.innerHTML += '<div class="cm cma">' + ans + '</div>';
+      msgs.lastElementChild.scrollIntoView({behavior:'smooth',block:'end'});
+    }
+}); // end DOMContentLoaded
 </script>
 </body>
 </html>
